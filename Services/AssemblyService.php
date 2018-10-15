@@ -1,9 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
  * @package   OstArticleAssemblySurcharge
+ *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
@@ -11,21 +12,16 @@
 
 namespace OstArticleAssemblySurcharge\Services;
 
-
-
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  */
-
 class AssemblyService
 {
-
     /**
      * ...
      *
      * @var ConfigurationService
      */
-
     private $configurationService;
 
 
@@ -33,13 +29,12 @@ class AssemblyService
     /**
      * ...
      *
-     * @param ConfigurationService      $configurationService
+     * @param ConfigurationService $configurationService
      */
-
-    public function __construct( ConfigurationService $configurationService )
+    public function __construct(ConfigurationService $configurationService)
     {
         // set params
-        $this->configurationService  = $configurationService;
+        $this->configurationService = $configurationService;
     }
 
 
@@ -47,15 +42,14 @@ class AssemblyService
     /**
      * ...
      *
-     * @param array   $attributes
+     * @param array $attributes
      *
-     * @return boolean
+     * @return bool
      */
-
-    public function hasAssembly( array $attributes )
+    public function hasAssembly(array $attributes)
     {
         // return by configuration
-        return ( (integer) $attributes[$this->configurationService->get( "attributeTag" )] == 2 );
+        return  (int) $attributes[$this->configurationService->get('attributeTag')] === 2;
     }
 
 
@@ -67,11 +61,9 @@ class AssemblyService
      *
      * @return float
      */
-
-    public function getSurcharge( array $attributes )
+    public function getSurcharge(array $attributes)
     {
         // return by configuration
-        return (float) $attributes[$this->configurationService->get( "attributeSurcharge" )];
+        return (float) $attributes[$this->configurationService->get('attributeSurcharge')];
     }
-
 }

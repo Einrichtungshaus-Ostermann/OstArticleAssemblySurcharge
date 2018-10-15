@@ -1,9 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
  * @package   OstArticleAssemblySurcharge
+ *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
@@ -11,26 +12,21 @@
 
 namespace OstArticleAssemblySurcharge\Setup;
 
+use Shopware\Bundle\AttributeBundle\Service\CrudService;
+use Shopware\Components\Model\ModelManager;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\UninstallContext;
-use Shopware\Components\Model\ModelManager;
-use Shopware\Bundle\AttributeBundle\Service\CrudService;
-
-
 
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  */
-
 class Uninstall
 {
-
     /**
      * Main bootstrap object.
      *
      * @var Plugin
      */
-
     protected $plugin;
 
 
@@ -40,7 +36,6 @@ class Uninstall
      *
      * @var UninstallContext
      */
-
     protected $context;
 
 
@@ -50,7 +45,6 @@ class Uninstall
      *
      * @var ModelManager
      */
-
     protected $modelManager;
 
 
@@ -60,7 +54,6 @@ class Uninstall
      *
      * @var CrudService
      */
-
     protected $crudService;
 
 
@@ -68,37 +61,33 @@ class Uninstall
     /**
      * ...
      *
-     * @param Plugin               $plugin
-     * @param UninstallContext     $context
-     * @param ModelManager         $modelManager
-     * @param CrudService          $crudService
+     * @param Plugin           $plugin
+     * @param UninstallContext $context
+     * @param ModelManager     $modelManager
+     * @param CrudService      $crudService
      */
-
-    public function __construct( Plugin $plugin, UninstallContext $context, ModelManager $modelManager, CrudService $crudService )
+    public function __construct(Plugin $plugin, UninstallContext $context, ModelManager $modelManager, CrudService $crudService)
     {
         // set params
-        $this->plugin       = $plugin;
-        $this->context      = $context;
+        $this->plugin = $plugin;
+        $this->context = $context;
         $this->modelManager = $modelManager;
-        $this->crudService  = $crudService;
+        $this->crudService = $crudService;
     }
-
 
 
     /**
      * ...
      *
-     * @return void
+     * @throws \Exception
      */
-
     public function uninstall()
     {
         // ...
-        $this->crudService->delete( "s_order_details_attributes", "ost_article_assembly_surcharge_status" );
-        $this->crudService->delete( "s_order_details_attributes", "ost_article_assembly_surcharge_costs" );
+        $this->crudService->delete('s_order_details_attributes', 'ost_article_assembly_surcharge_status');
+        $this->crudService->delete('s_order_details_attributes', 'ost_article_assembly_surcharge_costs');
 
         // generate new attribute tables
-        $this->modelManager->generateAttributeModels( array( "s_order_details_attributes" ) );
+        $this->modelManager->generateAttributeModels(['s_order_details_attributes']);
     }
-
 }
