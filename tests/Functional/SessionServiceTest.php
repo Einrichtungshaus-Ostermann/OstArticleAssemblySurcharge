@@ -15,27 +15,25 @@ class SessionServiceTest extends TestCase
      */
     private $sessionService;
 
-    /**
-     * @before
-     */
-    public function setUpSessionService()
+    public function setUp()
     {
-        $this->sessionService = new SessionService(new Enlight_Components_Session_Namespace());
+        parent::setUp();
+
+        $this->sessionService = new SessionService(Shopware()->Session());
     }
 
-    /**
-     * @after
-     */
-    public function tearDownSessionService()
+    public function tearDown()
     {
-        $this->sessionService = null;
+        parent::tearDown();
+
+        Shopware()->Session()->unsetAll();
     }
 
     public function testSetGet()
     {
         $this->sessionService->set(self::TEST_DATA);
 
-        assertEquals(self::TEST_DATA, $this->sessionService->get());
+        $this->assertEquals(self::TEST_DATA, $this->sessionService->get());
     }
 
     public function testSetHas()
@@ -43,7 +41,7 @@ class SessionServiceTest extends TestCase
         $this->sessionService->set(self::TEST_DATA);
 
         foreach (self::TEST_DATA as $value) {
-            assertTrue($this->sessionService->has($value));
+            $this->assertTrue($this->sessionService->has($value));
         }
     }
 
@@ -54,7 +52,7 @@ class SessionServiceTest extends TestCase
         }
 
         foreach (self::TEST_DATA as $value) {
-            assertTrue($this->sessionService->has($value));
+            $this->assertTrue($this->sessionService->has($value));
         }
     }
 
@@ -62,10 +60,10 @@ class SessionServiceTest extends TestCase
     {
         $this->sessionService->set(self::TEST_DATA);
 
-        assertTrue($this->sessionService->has(self::TEST_DATA[0]));
+        $this->assertTrue($this->sessionService->has(self::TEST_DATA[0]));
 
         $this->sessionService->remove(self::TEST_DATA[0]);
 
-        assertFalse($this->sessionService->has(self::TEST_DATA[0]));
+        $this->assertFalse($this->sessionService->has(self::TEST_DATA[0]));
     }
 }
