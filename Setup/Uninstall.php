@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
+ *
+ * @package   OstArticleAssemblySurcharge
+ * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
+ * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
+ * @license   proprietary
+ */
+
+namespace OstArticleAssemblySurcharge\Setup;
+
+use Shopware\Components\Plugin;
+use Shopware\Components\Plugin\Context\UninstallContext;
+use Shopware\Components\Model\ModelManager;
+use Shopware\Bundle\AttributeBundle\Service\CrudService;
+
+
+
+/**
+ * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
+ */
+
+class Uninstall
+{
+
+    /**
+     * Main bootstrap object.
+     *
+     * @var Plugin
+     */
+
+    protected $plugin;
+
+
+
+    /**
+     * ...
+     *
+     * @var UninstallContext
+     */
+
+    protected $context;
+
+
+
+    /**
+     * ...
+     *
+     * @var ModelManager
+     */
+
+    protected $modelManager;
+
+
+
+    /**
+     * ...
+     *
+     * @var CrudService
+     */
+
+    protected $crudService;
+
+
+
+    /**
+     * ...
+     *
+     * @param Plugin               $plugin
+     * @param UninstallContext     $context
+     * @param ModelManager         $modelManager
+     * @param CrudService          $crudService
+     */
+
+    public function __construct( Plugin $plugin, UninstallContext $context, ModelManager $modelManager, CrudService $crudService )
+    {
+        // set params
+        $this->plugin       = $plugin;
+        $this->context      = $context;
+        $this->modelManager = $modelManager;
+        $this->crudService  = $crudService;
+    }
+
+
+
+    /**
+     * ...
+     *
+     * @return void
+     */
+
+    public function uninstall()
+    {
+        // ...
+        $this->crudService->delete( "s_order_details_attributes", "ost_article_assembly_surcharge_status" );
+        $this->crudService->delete( "s_order_details_attributes", "ost_article_assembly_surcharge_costs" );
+
+        // generate new attribute tables
+        $this->modelManager->generateAttributeModels( array( "s_order_details_attributes" ) );
+    }
+
+}

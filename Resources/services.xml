@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <!-- configuration service -->
+        <service id="ost_article_assembly_surcharge.configuration" class="Shopware\Components\Plugin\CachedConfigReader">
+            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName"/>
+            <argument type="string">OstArticleAssemblySurcharge</argument>
+        </service>
+
+        <!-- plugin services -->
+        <service id="ost_article_assembly_surcharge.configuration_service" class="OstArticleAssemblySurcharge\Services\ConfigurationService">
+            <argument type="service" id="models" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="shopware.plugin.cached_config_reader" />
+            <argument type="string">OstArticleAssemblySurcharge</argument>
+        </service>
+
+        <service id="ost_article_assembly_surcharge.session_service" class="OstArticleAssemblySurcharge\Services\SessionService">
+            <argument type="service" id="session" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.assembly_service" class="OstArticleAssemblySurcharge\Services\AssemblyService">
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+        </service>
+
+        <!-- frontend controller listeners -->
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.detail.post_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Detail">
+            <argument type="service" id="ost_article_assembly_surcharge.assembly_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPostDispatch" event="Enlight_Controller_Action_PostDispatchSecure_Frontend_Detail" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.detail.pre_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Detail">
+            <argument type="service" id="ost_article_assembly_surcharge.assembly_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Frontend_Detail" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.checkout.pre_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Checkout">
+            <argument type="service" id="ost_article_assembly_surcharge.session_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Frontend_Checkout" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.checkout.ajax_add_article_cart" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Checkout">
+            <argument type="service" id="ost_article_assembly_surcharge.session_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="addArticle" event="Enlight_Controller_Action_Frontend_Checkout_ajaxAddArticleCart" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.checkout.change_quantity" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Checkout">
+            <argument type="service" id="ost_article_assembly_surcharge.session_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="changeQuantity" event="Enlight_Controller_Action_Frontend_Checkout_changeQuantity" />
+        </service>
+
+        <!-- core class listeners -->
+        <service id="ost_article_assembly_surcharge.listeners.core.s_basket.filter_result" class="OstArticleAssemblySurcharge\Listeners\Core\sBasket">
+            <argument type="service" id="ost_article_assembly_surcharge.session_service" />
+            <argument type="service" id="ost_article_assembly_surcharge.assembly_service" />
+            <tag name="shopware.event_listener" method="getBasketFilter" event="Shopware_Modules_Basket_GetBasket_FilterResult" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.core.s_admin.after_shipping_costs" class="OstArticleAssemblySurcharge\Listeners\Core\sAdmin">
+            <argument type="service" id="session" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="modules"/>
+            <tag name="shopware.event_listener" method="afterShippingcosts" event="sAdmin::sGetPremiumShippingcosts::after" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.core.s_order.filter_detail_attributes" class="OstArticleAssemblySurcharge\Listeners\Core\sOrder">
+            <tag name="shopware.event_listener" method="filterAttributes" event="Shopware_Modules_Order_SaveOrder_FilterDetailAttributes" />
+        </service>
+
+    </services>
+
+</container>

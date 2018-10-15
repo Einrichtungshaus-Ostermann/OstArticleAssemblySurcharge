@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+
+        <element type="button">
+            <name>defaultButton</name>
+            <label><![CDATA[<b>Allgemeine Einstellungen</b>]]></label>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>shopStatus</name>
+            <label>Shop aktivieren</label>
+            <value>true</value>
+            <description>Soll das Plugin für diesen Shop aktiviert werden?</description>
+        </element>
+
+        <element type="button">
+            <name>attributeButton</name>
+            <label><![CDATA[<b>Attribute</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>attributeTag</name>
+            <label>Etikett</label>
+            <value>attr10</value>
+            <description>In welchem Attribut wird das Etikett gepflegt? 0: Abholpreis, 1: Lieferpreis, 2: Vollservicepreis</description>
+        </element>
+
+        <element type="text">
+            <name>attributeSurcharge</name>
+            <label>Aufpreis</label>
+            <value>attr16</value>
+            <description>In welchem Attribut wird der Aufpreis der Montage gepflegt? Immer Brutto und Euro.</description>
+        </element>
+
+    </elements>
+
+</config>
