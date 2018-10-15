@@ -13,19 +13,16 @@
 namespace OstArticleAssemblySurcharge\Listeners\Core;
 
 use Enlight_Event_EventArgs as EventArgs;
-use OstArticleAssemblySurcharge\Services\AssemblyService;
-use OstArticleAssemblySurcharge\Services\SessionService;
+use OstArticleAssemblySurcharge\Services\AssemblyServiceInterface;
+use OstArticleAssemblySurcharge\Services\SessionServiceInterface;
 use Shopware\Bundle\StoreFrontBundle\Struct\Attribute;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class sBasket
 {
     /**
      * ...
      *
-     * @var SessionService
+     * @var SessionServiceInterface
      */
     private $sessionService;
 
@@ -34,7 +31,7 @@ class sBasket
     /**
      * ...
      *
-     * @var AssemblyService
+     * @var AssemblyServiceInterface
      */
     private $assemblyService;
 
@@ -43,10 +40,10 @@ class sBasket
     /**
      * ...
      *
-     * @param SessionService  $sessionService
-     * @param AssemblyService $assemblyService
+     * @param SessionServiceInterface  $sessionService
+     * @param AssemblyServiceInterface $assemblyService
      */
-    public function __construct(SessionService $sessionService, AssemblyService $assemblyService)
+    public function __construct(SessionServiceInterface $sessionService, AssemblyServiceInterface $assemblyService)
     {
         // set params
         $this->sessionService = $sessionService;

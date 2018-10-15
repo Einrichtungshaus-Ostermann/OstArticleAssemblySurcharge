@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
@@ -12,40 +11,28 @@
 
 namespace OstArticleAssemblySurcharge\Services;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
-class AssemblyService
+class AssemblyService implements AssemblyServiceInterface
 {
     /**
      * ...
      *
-     * @var ConfigurationService
+     * @var ConfigurationServiceInterface
      */
     private $configurationService;
-
 
 
     /**
      * ...
      *
-     * @param ConfigurationService $configurationService
+     * @param ConfigurationServiceInterface $configurationService
      */
-    public function __construct(ConfigurationService $configurationService)
+    public function __construct(ConfigurationServiceInterface $configurationService)
     {
         // set params
         $this->configurationService = $configurationService;
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param array $attributes
-     *
-     * @return bool
-     */
     public function hasAssembly(array $attributes)
     {
         // return by configuration
@@ -53,14 +40,6 @@ class AssemblyService
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param array $attributes
-     *
-     * @return float
-     */
     public function getSurcharge(array $attributes)
     {
         // return by configuration

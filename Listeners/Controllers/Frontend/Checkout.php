@@ -13,19 +13,16 @@
 namespace OstArticleAssemblySurcharge\Listeners\Controllers\Frontend;
 
 use Enlight_Event_EventArgs as EventArgs;
-use OstArticleAssemblySurcharge\Services\ConfigurationService;
-use OstArticleAssemblySurcharge\Services\SessionService;
+use OstArticleAssemblySurcharge\Services\ConfigurationServiceInterface;
+use OstArticleAssemblySurcharge\Services\SessionServiceInterface;
 use Shopware_Controllers_Frontend_Checkout as Controller;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class Checkout
 {
     /**
      * ...
      *
-     * @var SessionService
+     * @var SessionServiceInterface
      */
     private $sessionService;
 
@@ -34,7 +31,7 @@ class Checkout
     /**
      * ...
      *
-     * @var ConfigurationService
+     * @var ConfigurationServiceInterface
      */
     private $configurationService;
 
@@ -52,11 +49,11 @@ class Checkout
     /**
      * ...
      *
-     * @param SessionService       $sessionService
-     * @param ConfigurationService $configurationService
-     * @param string               $viewDir
+     * @param SessionServiceInterface       $sessionService
+     * @param ConfigurationServiceInterface $configurationService
+     * @param string                        $viewDir
      */
-    public function __construct(SessionService $sessionService, ConfigurationService $configurationService, $viewDir)
+    public function __construct(SessionServiceInterface $sessionService, ConfigurationServiceInterface $configurationService, $viewDir)
     {
         // set params
         $this->sessionService = $sessionService;

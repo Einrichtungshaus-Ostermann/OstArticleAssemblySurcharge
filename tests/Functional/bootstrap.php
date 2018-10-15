@@ -1,5 +1,5 @@
-<?php
-/**
+<?php declare(strict_types=1);
+/*
  * Shopware 5
  * Copyright (c) shopware AG.
  *
@@ -29,6 +29,8 @@ class TestKernel extends \Shopware\Kernel
 {
     /**
      * Static method to start boot kernel without leaving local scope in test helper.
+     *
+     * @throws Exception
      */
     public static function start()
     {

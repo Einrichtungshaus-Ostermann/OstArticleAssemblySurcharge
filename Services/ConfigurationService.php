@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
@@ -17,10 +16,7 @@ use Shopware\Components\Model\ModelManager;
 use Shopware\Components\Plugin\CachedConfigReader;
 use Shopware\Models\Shop\Shop;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
-class ConfigurationService
+class ConfigurationService implements ConfigurationServiceInterface
 {
     /**
      * ...
@@ -28,6 +24,7 @@ class ConfigurationService
      * @var array
      */
     protected $configuration;
+
 
 
     /**
@@ -56,13 +53,6 @@ class ConfigurationService
 
 
 
-    /**
-     * ...
-     *
-     * @param string|null $key
-     *
-     * @return mixed
-     */
     public function get($key = null)
     {
         // none given

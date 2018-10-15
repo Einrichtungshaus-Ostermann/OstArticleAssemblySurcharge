@@ -17,9 +17,6 @@ use Shopware\Components\Model\ModelManager;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\UninstallContext;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class Uninstall
 {
     /**
@@ -74,6 +71,7 @@ class Uninstall
         $this->modelManager = $modelManager;
         $this->crudService = $crudService;
     }
+
 
 
     /**

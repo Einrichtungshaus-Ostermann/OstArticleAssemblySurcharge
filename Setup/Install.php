@@ -17,9 +17,6 @@ use Shopware\Components\Model\ModelManager;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\InstallContext;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class Install
 {
     /**
@@ -74,6 +71,7 @@ class Install
         $this->modelManager = $modelManager;
         $this->crudService = $crudService;
     }
+
 
 
     /**

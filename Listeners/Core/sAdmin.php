@@ -17,9 +17,6 @@ use Enlight_Hook_HookArgs as HookArgs;
 use Shopware\Bundle\StoreFrontBundle\Service\ContextServiceInterface;
 use Shopware_Components_Modules as Modules;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class sAdmin
 {
     /**
@@ -65,11 +62,12 @@ class sAdmin
     }
 
 
-
     /**
      * Add custom article shipping costs.
      *
      * @param HookArgs $arguments
+     *
+     * @throws \Enlight_Exception
      */
     public function afterShippingcosts(HookArgs $arguments)
     {

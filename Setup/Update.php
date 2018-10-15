@@ -15,9 +15,6 @@ namespace OstArticleAssemblySurcharge\Setup;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\InstallContext;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class Update
 {
     /**

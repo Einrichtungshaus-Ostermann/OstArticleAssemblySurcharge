@@ -14,9 +14,6 @@ namespace OstArticleAssemblySurcharge\Listeners\Core;
 
 use Enlight_Event_EventArgs as EventArgs;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class sOrder
 {
     /**
@@ -46,6 +43,8 @@ class sOrder
         // return them
         return $attributes;
     }
+
+
 
     /**
      * @param $assembly

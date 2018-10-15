@@ -23,9 +23,6 @@ use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class OstArticleAssemblySurcharge extends Plugin
 {
     /**
@@ -55,6 +52,7 @@ class OstArticleAssemblySurcharge extends Plugin
         // clear complete cache after we activated the plugin
         $context->scheduleClearCache($context::CACHE_LIST_ALL);
     }
+
 
 
     /**
@@ -105,6 +103,7 @@ class OstArticleAssemblySurcharge extends Plugin
         // call default updater
         parent::update($context);
     }
+
 
 
     /**

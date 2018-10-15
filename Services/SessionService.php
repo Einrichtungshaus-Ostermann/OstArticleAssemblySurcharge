@@ -1,5 +1,4 @@
 <?php declare(strict_types=1);
-
 /**
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
@@ -14,10 +13,7 @@ namespace OstArticleAssemblySurcharge\Services;
 
 use Enlight_Components_Session_Namespace as Session;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
-class SessionService
+class SessionService implements SessionServiceInterface
 {
     /**
      * ...
@@ -49,50 +45,24 @@ class SessionService
     }
 
 
-
-    /**
-     * ...
-     *
-     * @return array
-     */
     public function get()
     {
         return (array) $this->session->offsetGet($this->index);
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param array $data
-     */
     public function set(array $data)
     {
         $this->session->offsetSet($this->index, $data);
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param string $number
-     *
-     * @return bool
-     */
     public function has($number)
     {
         return  $this->session->offsetExists($this->index) && is_array($this->session->offsetGet($this->index)) && in_array($number, $this->session->offsetGet($this->index), true);
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param string $number
-     */
     public function add($number)
     {
         // already set?
@@ -113,12 +83,6 @@ class SessionService
     }
 
 
-
-    /**
-     * ...
-     *
-     * @param string $number
-     */
     public function remove($number)
     {
         // not set?

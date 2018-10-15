@@ -13,32 +13,27 @@
 namespace OstArticleAssemblySurcharge\Listeners\Controllers\Frontend;
 
 use Enlight_Event_EventArgs as EventArgs;
-use OstArticleAssemblySurcharge\Services\AssemblyService;
-use OstArticleAssemblySurcharge\Services\ConfigurationService;
+use OstArticleAssemblySurcharge\Services\AssemblyServiceInterface;
+use OstArticleAssemblySurcharge\Services\ConfigurationServiceInterface;
 use Shopware\Bundle\StoreFrontBundle\Struct\Attribute;
 use Shopware_Controllers_Frontend_Detail as Controller;
 
-/**
- * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
- */
 class Detail
 {
     /**
      * ...
      *
-     * @var ConfigurationService
+     * @var ConfigurationServiceInterface
      */
     private $configurationService;
-
 
 
     /**
      * ...
      *
-     * @var AssemblyService
+     * @var AssemblyServiceInterface
      */
     private $assemblyService;
-
 
 
     /**
@@ -49,22 +44,20 @@ class Detail
     private $viewDir;
 
 
-
     /**
      * ...
      *
-     * @param AssemblyService      $assemblyService
-     * @param ConfigurationService $configurationService
-     * @param string               $viewDir
+     * @param AssemblyServiceInterface      $assemblyService
+     * @param ConfigurationServiceInterface $configurationService
+     * @param string                        $viewDir
      */
-    public function __construct(AssemblyService $assemblyService, ConfigurationService $configurationService, $viewDir)
+    public function __construct(AssemblyServiceInterface $assemblyService, ConfigurationServiceInterface $configurationService, $viewDir)
     {
         // set params
         $this->assemblyService = $assemblyService;
         $this->configurationService = $configurationService;
         $this->viewDir = $viewDir;
     }
-
 
 
     /**
@@ -87,7 +80,6 @@ class Detail
         // add template dir
         $view->addTemplateDir($this->viewDir);
     }
-
 
 
     /**
@@ -114,7 +106,7 @@ class Detail
         $article = $view->getAssign('sArticle');
 
         // has to be valid
-        if ((!is_array($article)) || (!isset($article['attributes']))) {
+        if ((!is_array($article)) || !isset($article['attributes'])) {
             // stop here
             return;
         }

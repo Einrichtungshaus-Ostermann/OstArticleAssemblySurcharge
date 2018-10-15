@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use OstArticleAssemblySurcharge\Services\SessionService;
 use PHPUnit\Framework\TestCase;
