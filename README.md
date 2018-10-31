@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Einrichtungshaus-Ostermann/ost-article-assembly-surcharge.svg?branch=master)](https://travis-ci.org/Einrichtungshaus-Ostermann/ost-article-assembly-surcharge)
+[![Build Status](https://travis-ci.org/Einrichtungshaus-Ostermann/OstArticleAssemblySurcharge.svg?branch=master)](https://travis-ci.org/Einrichtungshaus-Ostermann/OstArticleAssemblySurcharge)
 # Article Assembly Surcharge
 
 Adds an optional assembly surcharge for articles which have an assembly price set in the IWM. 
