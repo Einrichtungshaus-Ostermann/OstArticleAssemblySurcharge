@@ -30,10 +30,14 @@ class OstArticleAssemblySurcharge extends Enlight_Controller_Action implements C
         // return all actions
         return array_values(array_filter(
             array_map(
-                function ($method) { return (substr($method, -6) === 'Action') ? substr($method, 0, -6) : null; },
+                function ($method) {
+                    return (substr($method, -6) === 'Action') ? substr($method, 0, -6) : null;
+                },
                 get_class_methods($this)
             ),
-            function ($method) { return  !in_array((string) $method, ['', 'index', 'load', 'extends'], true); }
+            function ($method) {
+                return  !in_array((string) $method, ['', 'index', 'load', 'extends'], true);
+            }
         ));
     }
 
