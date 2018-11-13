@@ -35,14 +35,16 @@ class AssemblyService implements AssemblyServiceInterface
 
     public function hasAssembly(array $attributes)
     {
-        // return by configuration
-        return  (int) $attributes[$this->configurationService->get('attributeTag')] === 2;
+        // we either have fullservice incl. assembly or we have additional surcharge
+        return  ( ( (int) $attributes[$this->configurationService->get('attributeTag')] === 2 ) or ( (float) $attributes[$this->configurationService->get('attributeSurcharge')] > 0 ) );
     }
 
 
     public function getSurcharge(array $attributes)
     {
-        // return by configuration
-        return (float) $attributes[$this->configurationService->get('attributeSurcharge')];
+        // fullservice is always included with 0,- surcharge or we have explicit surcharge for pickup or delivery price
+        return ( (int) $attributes[$this->configurationService->get('attributeTag')] === 2 )
+            ? 0.0
+            : (float) $attributes[$this->configurationService->get('attributeSurcharge')];
     }
 }
