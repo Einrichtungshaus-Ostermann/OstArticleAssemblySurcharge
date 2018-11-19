@@ -40,8 +40,6 @@ class OstArticleAssemblySurcharge extends Plugin
         parent::build($container);
     }
 
-
-
     /**
      * Activate the plugin.
      *
@@ -52,8 +50,6 @@ class OstArticleAssemblySurcharge extends Plugin
         // clear complete cache after we activated the plugin
         $context->scheduleClearCache($context::CACHE_LIST_ALL);
     }
-
-
 
     /**
      * Install the plugin.
@@ -84,8 +80,6 @@ class OstArticleAssemblySurcharge extends Plugin
         parent::install($context);
     }
 
-
-
     /**
      * Update the plugin.
      *
@@ -103,8 +97,6 @@ class OstArticleAssemblySurcharge extends Plugin
         // call default updater
         parent::update($context);
     }
-
-
 
     /**
      * Uninstall the plugin.

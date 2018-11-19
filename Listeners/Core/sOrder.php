@@ -44,8 +44,6 @@ class sOrder
         return $attributes;
     }
 
-
-
     /**
      * @param $assembly
      *

@@ -26,8 +26,6 @@ class Checkout
      */
     private $sessionService;
 
-
-
     /**
      * ...
      *
@@ -35,16 +33,12 @@ class Checkout
      */
     private $configurationService;
 
-
-
     /**
      * ...
      *
      * @var string
      */
     private $viewDir;
-
-
 
     /**
      * ...
@@ -60,8 +54,6 @@ class Checkout
         $this->configurationService = $configurationService;
         $this->viewDir = $viewDir;
     }
-
-
 
     /**
      * ...
@@ -84,8 +76,6 @@ class Checkout
         // add template dir
         $view->addTemplateDir($this->viewDir);
     }
-
-
 
     /**
      * ...
@@ -110,8 +100,6 @@ class Checkout
             $this->sessionService->remove($request->getParam('sAdd'));
         }
     }
-
-
 
     /**
      * ...

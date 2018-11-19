@@ -27,7 +27,6 @@ class Detail
      */
     private $configurationService;
 
-
     /**
      * ...
      *
@@ -35,14 +34,12 @@ class Detail
      */
     private $assemblyService;
 
-
     /**
      * ...
      *
      * @var string
      */
     private $viewDir;
-
 
     /**
      * ...
@@ -58,7 +55,6 @@ class Detail
         $this->configurationService = $configurationService;
         $this->viewDir = $viewDir;
     }
-
 
     /**
      * ...
@@ -80,7 +76,6 @@ class Detail
         // add template dir
         $view->addTemplateDir($this->viewDir);
     }
-
 
     /**
      * ...

@@ -22,16 +22,12 @@ class SessionService implements SessionServiceInterface
      */
     private $session;
 
-
-
     /**
      * ...
      *
      * @var string
      */
     private $index = 'ost-article-assembly-surcharge';
-
-
 
     /**
      * ...
@@ -44,24 +40,20 @@ class SessionService implements SessionServiceInterface
         $this->session = $session;
     }
 
-
     public function get()
     {
         return (array) $this->session->offsetGet($this->index);
     }
-
 
     public function set(array $data)
     {
         $this->session->offsetSet($this->index, $data);
     }
 
-
     public function has($number)
     {
         return  $this->session->offsetExists($this->index) && is_array($this->session->offsetGet($this->index)) && in_array($number, $this->session->offsetGet($this->index), true);
     }
-
 
     public function add($number)
     {
@@ -81,7 +73,6 @@ class SessionService implements SessionServiceInterface
         // save back to session
         $this->set($session);
     }
-
 
     public function remove($number)
     {

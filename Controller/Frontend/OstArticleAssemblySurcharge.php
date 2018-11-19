@@ -41,8 +41,6 @@ class OstArticleAssemblySurcharge extends Enlight_Controller_Action implements C
         ));
     }
 
-
-
     /**
      * ...
      */

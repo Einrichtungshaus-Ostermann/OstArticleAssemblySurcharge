@@ -26,16 +26,12 @@ class sBasket
      */
     private $sessionService;
 
-
-
     /**
      * ...
      *
      * @var AssemblyServiceInterface
      */
     private $assemblyService;
-
-
 
     /**
      * ...
@@ -49,8 +45,6 @@ class sBasket
         $this->sessionService = $sessionService;
         $this->assemblyService = $assemblyService;
     }
-
-
 
     /**
      * ...

@@ -20,7 +20,6 @@ class AssemblyService implements AssemblyServiceInterface
      */
     private $configurationService;
 
-
     /**
      * ...
      *
@@ -32,18 +31,16 @@ class AssemblyService implements AssemblyServiceInterface
         $this->configurationService = $configurationService;
     }
 
-
     public function hasAssembly(array $attributes)
     {
         // we either have fullservice incl. assembly or we have additional surcharge
-        return  ( ( (int) $attributes[$this->configurationService->get('attributeTag')] === 2 ) or ( (float) $attributes[$this->configurationService->get('attributeSurcharge')] > 0 ) );
+        return   ((int) $attributes[$this->configurationService->get('attributeTag')] === 2) || ((float) $attributes[$this->configurationService->get('attributeSurcharge')] > 0);
     }
-
 
     public function getSurcharge(array $attributes)
     {
         // fullservice is always included with 0,- surcharge or we have explicit surcharge for pickup or delivery price
-        return ( (int) $attributes[$this->configurationService->get('attributeTag')] === 2 )
+        return ((int) $attributes[$this->configurationService->get('attributeTag')] === 2)
             ? 0.0
             : (float) $attributes[$this->configurationService->get('attributeSurcharge')];
     }

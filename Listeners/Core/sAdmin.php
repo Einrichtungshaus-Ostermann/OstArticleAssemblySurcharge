@@ -26,8 +26,6 @@ class sAdmin
      */
     private $session;
 
-
-
     /**
      * ...
      *
@@ -35,16 +33,12 @@ class sAdmin
      */
     private $contextService;
 
-
-
     /**
      * ...
      *
      * @var Modules
      */
     private $modules;
-
-
 
     /**
      * ...
@@ -60,7 +54,6 @@ class sAdmin
         $this->contextService = $contextService;
         $this->modules = $modules;
     }
-
 
     /**
      * Add custom article shipping costs.
@@ -109,8 +102,6 @@ class sAdmin
         // set calculated shipping costs
         $arguments->setReturn($costs);
     }
-
-
 
     /**
      * Get the tax rate for the current dispach method.
