@@ -27,7 +27,7 @@
             {* free of charge assembly? *}
             {if $ostArticleAssemblySurcharge.surcharge == 0}
 
-                <div style="background-color: green; color: white;">Vollpreisservice inkl. Lieferung und Montage</div>
+                <div class="ost-article-assembly-surchage--fullservice-price" style="background-color: green; color: white;">Vollpreisservice inkl. Lieferung und Montage</div>
 
 
             {else}

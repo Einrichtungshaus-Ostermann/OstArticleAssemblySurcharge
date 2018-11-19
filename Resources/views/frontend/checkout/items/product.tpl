@@ -22,7 +22,7 @@
 
     {if $sBasketItem.ostArticleAssemblySurcharge.surcharge == 0}
 
-        <div style="clear: both; background-color: green; color: white;">Vollpreisservice inkl. Lieferung und Montage</div>
+        <div class="ost-article-assembly-surchage--fullservice-price" style="clear: both; background-color: green; color: white;">Vollpreisservice inkl. Lieferung und Montage</div>
 
         {else}
 
