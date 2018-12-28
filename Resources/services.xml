@@ -74,7 +74,7 @@
             <argument type="service" id="session" />
             <argument type="service" id="shopware_storefront.context_service" />
             <argument type="service" id="modules"/>
-            <tag name="shopware.event_listener" method="afterShippingcosts" event="sAdmin::sGetPremiumShippingcosts::after" />
+            <tag name="shopware.event_listener" method="afterShippingcosts" event="sAdmin::sGetPremiumShippingcosts::after" priority="500" />
         </service>
 
         <service id="ost_article_assembly_surcharge.listeners.core.s_order.filter_detail_attributes" class="OstArticleAssemblySurcharge\Listeners\Core\sOrder">
