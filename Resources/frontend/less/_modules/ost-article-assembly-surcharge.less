@@ -2,8 +2,20 @@
  * Einrichtungshaus Ostermann GmbH & Co. KG - Article Assembly Surcharge
  *
  * @package   OstArticleAssemblySurcharge
+
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
  * @copyright 2018 Einrichtungshaus Ostermann GmbH & Co. KG
  * @license   proprietary
  */
 
+// add padding to success message
+div.ost-article-assembly-surchage--fullservice-price {
+    padding: 10px;
+}
+
+// remove clear on checkout
+body.is--ctl-checkout {
+    div.ost-article-assembly-surchage--fullservice-price {
+        clear: both;
+    }
+}

@@ -7,49 +7,34 @@
 
 
 
-
+{* append message or checkbox after buybox*}
 {block name="frontend_detail_buy_button_container"}
 
-
+    {* prepend parent *}
     {$smarty.block.parent}
-
-
-
 
     {* active for this shop? *}
     {if $ostArticleAssemblySurchargeConfiguration.shopStatus == true}
 
-
         {* is this article marked as full service? *}
         {if $ostArticleAssemblySurcharge.status == true}
-
 
             {* free of charge assembly? *}
             {if $ostArticleAssemblySurcharge.surcharge == 0}
 
-                <div class="ost-article-assembly-surchage--fullservice-price" style="background-color: green; color: white;">Vollpreisservice inkl. Lieferung und Montage</div>
-
+                {* fullservice without charge *}
+                <div class="ost-article-assembly-surchage--fullservice-price alert is--success">{s name="full-service"}Vollpreisservice inkl. Lieferung und Montage{/s}</div>
 
             {else}
 
-
+                {* optional checkbox *}
                 <input type="checkbox" name="ost-article-assembly-surcharge" class="ost-article-assembly-surcharge--checkbox" />
-
-                Montage zzgl. {$ostArticleAssemblySurcharge.surcharge|currency} pro Stück
-
+                {s name="optional-assembly"}Montage zzgl. {$ostArticleAssemblySurcharge.surcharge|currency} pro Stück{/s}
 
             {/if}
 
-
         {/if}
-
-
 
     {/if}
 
-
-
-
-
 {/block}
-

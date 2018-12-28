@@ -14,6 +14,9 @@
  * - added priority to shipping costs calculation listener to add the surcharge
  *   after everything else was calculated
  *
+ * 1.0.2
+ * - fixed css
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
