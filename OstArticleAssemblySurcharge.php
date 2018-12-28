@@ -17,6 +17,9 @@
  * 1.0.2
  * - fixed css
  *
+ * 1.0.3
+ * - added outer html container to checkbox in detail controller
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>

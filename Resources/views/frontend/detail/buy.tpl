@@ -23,13 +23,17 @@
             {if $ostArticleAssemblySurcharge.surcharge == 0}
 
                 {* fullservice without charge *}
-                <div class="ost-article-assembly-surchage--fullservice-price alert is--success">{s name="full-service"}Vollpreisservice inkl. Lieferung und Montage{/s}</div>
+                <div class="ost-article-assembly-surchage--fullservice-price alert is--success">
+                    {s name="full-service"}Vollpreisservice inkl. Lieferung und Montage{/s}
+                </div>
 
             {else}
 
                 {* optional checkbox *}
-                <input type="checkbox" name="ost-article-assembly-surcharge" class="ost-article-assembly-surcharge--checkbox" />
-                {s name="optional-assembly"}Montage zzgl. {$ostArticleAssemblySurcharge.surcharge|currency} pro Stück{/s}
+                <div class="ost-article-assembly-surchage--fullservice-checkbox alert is--info">
+                    <input type="checkbox" name="ost-article-assembly-surcharge" class="ost-article-assembly-surcharge--checkbox" />
+                    {s name="optional-assembly"}Montage zzgl. {$ostArticleAssemblySurcharge.surcharge|currency} pro Stück{/s}
+                </div>
 
             {/if}
 
