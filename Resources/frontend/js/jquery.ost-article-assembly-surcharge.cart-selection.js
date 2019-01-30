@@ -17,7 +17,7 @@
         init: function ()
         {
             // get this
-            let me = this;
+            var me = this;
 
             // click event for the checkbox
             me._on( me.$el, 'change', $.proxy( me.clickAssembly, me ) );

@@ -20,6 +20,9 @@
  * 1.0.3
  * - added outer html container to checkbox in detail controller
  *
+ * 1.0.4
+ * - removed usage of let for grunt
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
