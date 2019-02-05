@@ -26,6 +26,9 @@
  * 1.0.5
  * - changed name and default value of attribute configuration
  *
+ * 1.0.6
+ * - changed name of attribute configuration
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
