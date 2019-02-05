@@ -23,6 +23,9 @@
  * 1.0.4
  * - removed usage of let for grunt
  *
+ * 1.0.5
+ * - changed name and default value of attribute configuration
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>

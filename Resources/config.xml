@@ -23,14 +23,14 @@
 
         <element type="text">
             <name>attributeTag</name>
-            <label>Etikett</label>
-            <value>attr10</value>
+            <label>Etikettenart</label>
+            <value>attr18</value>
             <description>In welchem Attribut wird das Etikett gepflegt? 0: Abholpreis, 1: Lieferpreis, 2: Vollservicepreis</description>
         </element>
 
         <element type="text">
             <name>attributeSurcharge</name>
-            <label>Aufpreis</label>
+            <label>Montagekosten</label>
             <value>attr16</value>
             <description>In welchem Attribut wird der Aufpreis der Montage gepflegt? Immer Brutto und Euro.</description>
         </element>
