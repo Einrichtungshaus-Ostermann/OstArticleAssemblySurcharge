@@ -72,9 +72,6 @@ class Detail
 
         // add configuration
         $view->assign('ostArticleAssemblySurchargeConfiguration', $this->configurationService->get());
-
-        // add template dir
-        $view->addTemplateDir($this->viewDir);
     }
 
     /**

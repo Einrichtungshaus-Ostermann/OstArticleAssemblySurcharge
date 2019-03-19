@@ -28,6 +28,16 @@
         </service>
 
         <!-- frontend controller listeners -->
+        <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.pre_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend">
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Frontend" />
+        </service>
+
+        <service id="ost_article_assembly_surcharge.listeners.controllers.widgets.pre_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Widgets">
+            <argument type="string">%ost_article_assembly_surcharge.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Widgets" />
+        </service>
+
         <service id="ost_article_assembly_surcharge.listeners.controllers.frontend.detail.post_dispatch" class="OstArticleAssemblySurcharge\Listeners\Controllers\Frontend\Detail">
             <argument type="service" id="ost_article_assembly_surcharge.assembly_service" />
             <argument type="service" id="ost_article_assembly_surcharge.configuration_service" />

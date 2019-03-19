@@ -31,6 +31,7 @@
  *
  * 1.0.7
  * - moved templates into separate files
+ * - fixed smarty security settings
  *
  * @package   OstArticleAssemblySurcharge
  *

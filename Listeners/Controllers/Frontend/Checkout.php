@@ -72,9 +72,6 @@ class Checkout
         // add configuration
         $view->assign('ostArticleAssemblySurchargeConfiguration', $this->configurationService->get());
         $view->assign('ostArticleAssemblySurchargeAction', $controller->Request()->getActionName());
-
-        // add template dir
-        $view->addTemplateDir($this->viewDir);
     }
 
     /**
