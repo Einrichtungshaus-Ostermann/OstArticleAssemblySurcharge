@@ -29,6 +29,9 @@
  * 1.0.6
  * - changed name of attribute configuration
  *
+ * 1.0.7
+ * - moved templates into separate files
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
