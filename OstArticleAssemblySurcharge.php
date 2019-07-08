@@ -33,6 +33,9 @@
  * - moved templates into separate files
  * - fixed smarty security settings
  *
+ * 1.0.8
+ * - added free-shipping badge for article detail page
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
