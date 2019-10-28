@@ -27,11 +27,27 @@ body.is--ctl-detail {
         position: absolute;
         top: 90px;
         left: 0;
-        padding: 11px 16px 11px 16px;
         color: #fff;
-        font-size: 16px;
         text-transform: uppercase;
         background-color: #4eb91b;
         z-index: 10;
+    }
+}
+
+// small by default
+body.is--ctl-detail {
+    div.ost-article-assembly-surchage--full-service-notice {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+// bigger on bigger viewports
+@media screen and (min-width: @tabletViewportWidth) {
+    body.is--ctl-detail {
+        div.ost-article-assembly-surchage--full-service-notice {
+            padding: 11px 16px 11px 16px;
+            font-size: 16px;
+        }
     }
 }

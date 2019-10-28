@@ -36,6 +36,9 @@
  * 1.0.8
  * - added free-shipping badge for article detail page
  *
+ * 1.0.9
+ * - changed size of full-service-notice in lower viewports
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
