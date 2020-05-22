@@ -39,6 +39,9 @@
  * 1.0.9
  * - changed size of full-service-notice in lower viewports
  *
+ * 1.0.10
+ * - changed controller auto-loading directory
+ *
  * @package   OstArticleAssemblySurcharge
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
